@@ -113,6 +113,39 @@ a:hover{color:#1abc9c;border-bottom-style:solid;}
   color:#7f8c8d;font-size:0.82em;line-height:1.65;
 }
 
+/* 时间线影响方向色彩（用 span 包裹） */
+.positive { color: #e74c3c; font-weight: 600; }   /* 利好 - 中国红涨 */
+.negative { color: #27ae60; font-weight: 600; }    /* 利空 - 中国绿跌 */
+.neutral { color: #95a5a6; }                        /* 中性 - 灰 */
+
+/* 卖空骤增 / 风险警告框（后处理添加） */
+.alert-box {
+  background: linear-gradient(135deg, #ffeaea, #fff5f5);
+  border-left: 4px solid #e74c3c;
+  padding: 14px 20px;
+  margin: 1.2em 0;
+  border-radius: 0 8px 8px 0;
+  color: #c0392b;
+  font-size: 0.9em;
+  line-height: 1.7;
+}
+.alert-box strong { color: #922b21; }
+
+/* 附录节（后处理给第八节开始的容器加 class） */
+.appendix-section h2 { font-size: 1.15em; color: #7f8c8d; border-left-color: #bdc3c7; }
+.appendix-section h3 { font-size: 0.98em; color: #95a5a6; }
+.appendix-section table { font-size: 0.82em; box-shadow: none; }
+.appendix-section th { padding: 7px 10px; font-size: 0.88em; }
+.appendix-section td { padding: 6px 10px; color: #666; }
+.appendix-section p { font-size: 0.85em; color: #888; }
+
+/* 附录引用行（图片下方来源标注） */
+.appendix-section figcaption,
+.appendix-section p > em:only-child {
+  color: #bbb;
+  font-size: 0.78em;
+}
+
 /* 响应式 */
 @media(max-width:640px){
   .container{padding:16px 12px;}
@@ -158,6 +191,39 @@ def convert(md_text: str, title: str = "分析报告", base_dir: str = "") -> st
     ]
 
     html_body = markdown.markdown(md_text, extensions=md_ext)
+
+    # ── HTML 后处理：增强样式 ──
+
+    # 1. 附录节：从"附录"标题开始到下一个同级 h2，包一层 <div class="appendix-section">
+    #    匹配 <h2>...附录...</h2> 及其后所有内容直到下一个 <h2> 或文末
+    appendix_pattern = re.compile(
+        r"(<h2[^>]*>[^<]*附录[^<]*</h2>)(.*?)(?=<h2[>\s]|$)",
+        re.DOTALL,
+    )
+    html_body = appendix_pattern.sub(
+        r'<div class="appendix-section">\1\2</div>', html_body
+    )
+
+    # 2. 卖空骤增警告框：含"🚨"或"骤增警告"的 blockquote 加 alert-box class
+    def _alert_box_sub(m):
+        content = m.group(1)
+        if "🚨" in content or "骤增" in content or "警告" in content:
+            return f'<blockquote class="alert-box">{content}</blockquote>'
+        return m.group(0)
+
+    html_body = re.sub(
+        r"<blockquote>(.*?)</blockquote>", _alert_box_sub, html_body, flags=re.DOTALL
+    )
+
+    # 3. 时间线影响方向色彩：<span class="positive">🟢</span> 等
+    #    模型在 md 里写的 🟢🔴⚪ emoji 会原样保留，这里把含这些 emoji 的 td 加 class
+    html_body = html_body.replace(
+        "<td>🟢", '<td class="positive">🟢'
+    ).replace(
+        "<td>🔴", '<td class="negative">🔴'
+    ).replace(
+        "<td>⚪", '<td class="neutral">⚪'
+    )
 
     # 提取 <h1> 作为页面标题（如果没有自定义标题）
     if not title or title == "分析报告":

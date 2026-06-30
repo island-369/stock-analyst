@@ -265,10 +265,11 @@ web_search "{公司名} 业绩演示 投资者演示 PPT 2026"
 
 1. 写 `report.md` 到任务文件夹
 2. 转 HTML（`md2html.py`）
-3. 回复用户 webchat 精炼总结（附带 PDF 提示语）
-4. 打开浏览器（`open report.html`）— 可在回复之后异步执行
+3. **自动导出 PDF**（`export_report.py`）
+4. 回复用户 webchat 精炼总结（附带 PDF 提示语）
+5. 打开浏览器（`open report.html`）— 可在回复之后异步执行
 
-> 核心原则：**report.md 和 HTML 必须在回复用户之前完成**，浏览器打开可以在回复后执行，但绝不能漏掉。
+> 核心原则：**report.md、HTML、PDF 都必须在回复用户之前完成**，浏览器打开可以在回复后执行，但绝不能漏掉。
 
 #### 5a. webchat 精炼总结（最后回复用户）
 
@@ -396,11 +397,14 @@ write(content=报告markdown内容, path="{output_dir}/report.md")
 
 ---
 
-### Step 6：⭐⭐ MD → HTML 并打开浏览器（必做，在回复用户之前）
+### Step 6：⭐⭐ MD → HTML + 自动 PDF 导出（必做，在回复用户之前）
 
 ```bash
+# Step 6a: 转 HTML
 {SKILL_DIR}/scripts/venv/bin/python {SKILL_DIR}/scripts/md2html.py {output_dir}/report.html -i {output_dir}/report.md
-open {output_dir}/report.html
+
+# Step 6b: 自动导出 PDF（不再等待用户要求）
+{SKILL_DIR}/scripts/venv/bin/python {SKILL_DIR}/scripts/export_report.py {output_dir}/report.md --format pdf --output {output_dir}/report.pdf
 ```
 
 **md2html.py 会自动：**
@@ -409,22 +413,42 @@ open {output_dir}/report.html
 - 将 Markdown 表格/代码块/引用块/图片转为 HTML
 - 图片相对路径自动转为 `file://` 绝对路径（浏览器可直接显示）
 
+**export_report.py 说明：**
+
+- 自动将 report.md 解析为 PDF（含中文字体、图片嵌入、表格排版）
+- 输出到同目录下 report.pdf（约 200-500KB）
+- PDF 和 HTML 同步生成，用户不必再额外开口要
+
 ---
 
-### Step 7：📄 PDF 导出提示（每次必带）
+### Step 6.5：⭐⭐ 拷贝产物到 workspace（必做，解决右侧产物面板不显示问题）
+
+**数据脚本默认输出到 `.workbuddy/stock_data_output/`，不在当前 workspace 下，这会导​​致右侧产物面板不显示。**
+
+每次分析完成后（Step 6 之后、回复用户之前），把产物拷贝到 workspace 根目录：
+
+```bash
+cp -R {output_dir} {workspace}/stock-output/
+```
+
+然后在 `present_files` 中使用 workspace 路径下的文件：
+```
+present_files(["stock-output/report.html", "stock-output/report.md", ...])
+```
+
+---
+
+### Step 7：📄 打开浏览器 + PDF 提示（每次必带）
+
+```bash
+open {output_dir}/report.html
+```
 
 **每次分析结束后，必须在 webchat 回复末尾加上这句提示：**
 
-> 📄 详细报告已在浏览器中打开，需要导出 PDF 版吗？告诉我即可生成。
+> 📄 详细报告已在浏览器中打开，同时 📥 PDF 报告也已自动生成在同目录下（report.pdf），随时可下载或分享。
 
-**用户要求导出时执行：**
-
-```bash
-{SKILL_DIR}/scripts/venv/bin/python {SKILL_DIR}/scripts/export_report.py {output_dir}/report.md --format pdf
-open {output_dir}/report.pdf
-```
-
-> **提示话术：** "需要导出 PDF 版吗？告诉我即可生成。"
+> **提示话术（如用户提到导出/保存/打印等）：** "PDF 已经自动生成好了，可以直接打开查看或分享。"
 
 ---
 
