@@ -1,0 +1,524 @@
+{
+  "stock_code": "000070.SZ",
+  "stock_name": "特发信息",
+  "market": "sz",
+  "currency": "CNY",
+  "price_as_of": "2026-06-30",
+  "output_dir": "/Users/xqy/.workbuddy/stock_data_output/000070_20260630_1441",
+  "fetch_time": "2026-06-30T14:41:32.611608",
+  "kline_source": "eastmoney",
+  "images": {
+    "kline": "/Users/xqy/.workbuddy/stock_data_output/000070_20260630_1441/kline_em.png",
+    "macro": "/Users/xqy/.workbuddy/stock_data_output/000070_20260630_1441/macro.png",
+    "pe_band": "/Users/xqy/.workbuddy/stock_data_output/000070_20260630_1441/pe_band.png",
+    "financials_trend": "/Users/xqy/.workbuddy/stock_data_output/000070_20260630_1441/financials_trend.png"
+  },
+  "data": {
+    "financials": {
+      "currentPrice": 20.77,
+      "previousClose": 20.37,
+      "marketCap": 18036521550.73,
+      "forwardPE": 30.455881,
+      "priceToBook": 18.03,
+      "returnOnEquity": -0.19489999,
+      "revenueGrowth": 0.051,
+      "freeCashflow": -148181168,
+      "totalRevenue": 4456501248,
+      "fiftyTwoWeekHigh": 20.95,
+      "fiftyTwoWeekLow": 19.8,
+      "shortName": "特发信息",
+      "industry": "Communication Equipment",
+      "sector": "Technology",
+      "changePercent": 0.4,
+      "currency": "CNY",
+      "trailingPE_note": "亏损或未披露，PE 无意义",
+      "price_as_of": "2026-06-30"
+    },
+    "quarterly_financials_summary": {
+      "period": "20260331",
+      "revenue_yiyuan": null,
+      "net_income_yiyuan": 12636232.59,
+      "gross_margin_pct": null,
+      "net_margin_pct": null,
+      "ocf_ni_ratio": null,
+      "debt_ratio_pct": null,
+      "roe_pct": null,
+      "rev_yoy_pct": null,
+      "rev_qoq_pct": null
+    },
+    "pe_band_stats": {
+      "mode": "price_band",
+      "pe_note": "亏损或未披露，PE 无意义",
+      "price_now": 20.77,
+      "price_percentile_3y": 87.9,
+      "price_mean_3y": 17.35,
+      "price_max_3y": 25.33,
+      "price_min_3y": 11.23
+    },
+    "technicals": {
+      "close": 20.77,
+      "ma5": 22.71,
+      "ma20": 20.32,
+      "vol_ratio": 0.73,
+      "ma10": 22.23,
+      "ma60": 19.76,
+      "vol_ma5": 115.56,
+      "vol_ma10": 112.95,
+      "rsi": 51.0,
+      "macd_hist": 0.1126,
+      "prev_macd_hist": 0.2925,
+      "kdj_k": 47.5,
+      "kdj_d": 64.97,
+      "kdj_j": 12.57,
+      "boll_upper": 25.39,
+      "boll_mid": 20.32,
+      "boll_lower": 15.25,
+      "boll_position": "中轨上方",
+      "obv": 19517157.0,
+      "obv_trend": "下行",
+      "ma_status": "多头排列",
+      "macd_status": "动能减弱",
+      "rsi_status": "中性",
+      "kdj_status": "死叉向下",
+      "signals": [
+        "MA 多头排列（强势）",
+        "KDJ 死叉向下"
+      ]
+    },
+    "capital_flow_summary": {
+      "type": "北向资金",
+      "consecutive_days": 0,
+      "direction": "净卖出",
+      "recent_total_万股": 0.0
+    },
+    "main_capital_flow": {},
+    "news": [
+      {
+        "title": "光纤概念持续调整 特发信息跌停",
+        "content": "光纤概念盘中持续调整，特发信息封跌停，长盈通跌近10%，中天科技、永鼎股份、亨通光电、通鼎互联等均跌超5%。",
+        "date": "2026-06-26 10:29",
+        "source": "东方财富Choice数据",
+        "url": "http://finance.eastmoney.com/a/202606263784307760.html"
+      },
+      {
+        "title": "光纤概念持续调整 特发信息封跌停",
+        "content": "光纤概念盘中持续调整，特发信息封跌停，长盈通跌近10%，中天科技、永鼎股份、亨通光电、通鼎互联等均跌超5%。",
+        "date": "2026-06-26 10:28",
+        "source": "财联社",
+        "url": "http://finance.eastmoney.com/a/202606263784357681.html"
+      },
+      {
+        "title": "光纤概念股震荡走低，特发信息跌停",
+        "content": "光纤概念股震荡走低，特发信息跌停，烽火通信逼近跌停，中天科技、亨通光电、长江通信、长飞光纤跟跌。",
+        "date": "2026-06-26 10:36",
+        "source": "界面新闻",
+        "url": "http://finance.eastmoney.com/a/202606263784407666.html"
+      },
+      {
+        "title": "特发信息：股票交易异常波动公告",
+        "content": "证券日报网讯 6月23日，特发信息发布公告称，公司股票于2026年6月22日至6月23日连续两个交易日收盘价格涨幅偏离值累计超过20%，根据《深圳证券交易所交易规则》的有关规定，属于股票交易异常波动情形。",
+        "date": "2026-06-23 21:02",
+        "source": "证券日报",
+        "url": "http://finance.eastmoney.com/a/202606233779989365.html"
+      },
+      {
+        "title": "特发信息成交额创2025年12月9日以来新高",
+        "content": "数据宝统计，截至14:39，特发信息成交额42.90亿元，创2025年12月9日以来新高。最新股价上涨0.84%，换手率20.01%。上一交易日该股全天成交额为34.24亿元。",
+        "date": "2026-06-24 14:47",
+        "source": "证券时报网",
+        "url": "http://finance.eastmoney.com/a/202606243781347538.html"
+      },
+      {
+        "title": "特发信息6月23日龙虎榜数据",
+        "content": "特发信息今日涨停，全天换手率16.05%，成交额34.24亿元，振幅6.68%。龙虎榜数据显示，机构净买入7645.52万元，深股通净买入1.19亿元，营业部席位合计净卖出2423.07万元。",
+        "date": "2026-06-23 17:02",
+        "source": "证券时报网",
+        "url": "http://finance.eastmoney.com/a/202606233779765032.html"
+      },
+      {
+        "title": "特发信息(000070)龙虎榜数据(06-23)",
+        "content": "交易所2026年6月23日公布的交易公开信息显示，特发信息因成为日涨幅偏离值达到7%的前5只证券、连续三个交易日内，涨幅偏离值累计达到20%的证券上榜。特发信息当日收报25.08元，涨跌幅10.00%，偏离值12.35%，换手率16.05%，成交额34.24亿。",
+        "date": "2026-06-23 16:28",
+        "source": "东方财富Choice数据",
+        "url": "http://stock.eastmoney.com/a/202606233779714470.html"
+      },
+      {
+        "title": "特发信息涨9.99%，股价创历史新高",
+        "content": "特发信息股价创出历史新高，截至9:35，该股上涨9.99%，股价报22.80元，成交量2825.47万股，成交金额6.42亿元，换手率3.30%，该股最新A股总市值达197.99亿元，该股A股流通市值195.33亿元。",
+        "date": "2026-06-22 10:07",
+        "source": "证券时报网",
+        "url": "http://finance.eastmoney.com/a/202606223777468479.html"
+      },
+      {
+        "title": "算力租赁板块盘初拉升，特发信息创新高",
+        "content": "南方财经6月22日电，算力租赁板块盘初拉升，特发信息创新高，天娱数科涨停，中青宝涨超10%，行云科技、日科化学、莲花控股、中富通、艾可蓝跟涨。",
+        "date": "2026-06-22 09:35",
+        "source": "南方财经网",
+        "url": "http://finance.eastmoney.com/a/202606223777280925.html"
+      },
+      {
+        "title": "特发信息连续2个交易日收盘价格涨幅偏离值累计超20%",
+        "content": "特发信息（000070）发布公告，公司股票在2026年6月22日至6月23日连续两个交易日，收盘价格涨幅偏离值累计超过20%。 　　2026年一季度，特发信息实现收入8.30亿元，归母净利润-953万元。",
+        "date": "2026-06-23 18:11",
+        "source": "财中社",
+        "url": "http://finance.eastmoney.com/a/202606233779826445.html"
+      }
+    ],
+    "announcements": [
+      {
+        "title": "特发信息:2026年第二次临时股东会决议公告",
+        "date": "2026-06-30",
+        "type": "股东大会决议公告",
+        "url": "https://data.eastmoney.com/notices/detail/AN202606291826545740.html"
+      },
+      {
+        "title": "特发信息:2026年第二次临时股东会法律意见书",
+        "date": "2026-06-30",
+        "type": "法律意见书",
+        "url": "https://data.eastmoney.com/notices/detail/AN202606291826545615.html"
+      },
+      {
+        "title": "特发信息:股票交易异常波动公告",
+        "date": "2026-06-24",
+        "type": "股票交易异常波动",
+        "url": "https://data.eastmoney.com/notices/detail/AN202606231823774818.html"
+      },
+      {
+        "title": "特发信息:关于召开2026年第二次临时股东会的通知",
+        "date": "2026-06-13",
+        "type": "召开股东大会通知",
+        "url": "https://data.eastmoney.com/notices/detail/AN202606121823506812.html"
+      },
+      {
+        "title": "特发信息:董事会第九届三十三次会议决议公告",
+        "date": "2026-06-13",
+        "type": "董事会决议公告",
+        "url": "https://data.eastmoney.com/notices/detail/AN202606121823506822.html"
+      },
+      {
+        "title": "特发信息:对外担保公告",
+        "date": "2026-06-13",
+        "type": "提供/对外担保公告",
+        "url": "https://data.eastmoney.com/notices/detail/AN202606121823506824.html"
+      },
+      {
+        "title": "特发信息:关于第一期员工持股计划股票出售完毕暨终止的公告",
+        "date": "2026-05-19",
+        "type": "员工持股计划",
+        "url": "https://data.eastmoney.com/notices/detail/AN202605181822397419.html"
+      },
+      {
+        "title": "特发信息:2025年度股东会法律意见书",
+        "date": "2026-05-16",
+        "type": "法律意见书",
+        "url": "https://data.eastmoney.com/notices/detail/AN202605151822352992.html"
+      },
+      {
+        "title": "特发信息:2025年度股东会决议公告",
+        "date": "2026-05-16",
+        "type": "股东大会决议公告",
+        "url": "https://data.eastmoney.com/notices/detail/AN202605151822352991.html"
+      },
+      {
+        "title": "特发信息:关于回购股份注销完成暨控股股东及其一致行动人持股比例被动增加触及1%整数倍的公告",
+        "date": "2026-05-11",
+        "type": "回购实施公告",
+        "url": "https://data.eastmoney.com/notices/detail/AN202605101822123565.html"
+      }
+    ],
+    "analyst_reports": [
+      {
+        "org": "中邮证券",
+        "rating": "买入",
+        "change": 2,
+        "title": "信息赋能，数字未来",
+        "date": "2026-05-26",
+        "infoCode": "AP202605261822875181",
+        "stockName": "特发信息",
+        "predict_next_year_pe": "163.9400000000",
+        "predict_this_year_eps": "0.0200000000",
+        "predict_next_year_eps": "0.1100000000",
+        "pdf_url": "https://pdf.dfcfw.com/pdf/H3_AP202605261822875181_1.pdf"
+      }
+    ],
+    "analyst_consensus": {
+      "rating_distribution": {
+        "买入": 1
+      },
+      "rating_summary": "买入1家",
+      "total_reports": 1,
+      "latest_rating_change": "",
+      "next_year_eps_median": 0.11,
+      "target_price_median": 18.03,
+      "target_price_count": 1,
+      "target_price_range": [
+        18.03,
+        18.03
+      ]
+    },
+    "peer_comparison": {
+      "industry": "通信设备",
+      "bk_code": "BK0448",
+      "peers": [
+        {
+          "code": "600105",
+          "name": "永鼎股份",
+          "price": 67.37,
+          "pe": 155.04,
+          "pb": 29.88,
+          "market_cap_yi": null
+        },
+        {
+          "code": "600345",
+          "name": "长江通信",
+          "price": 65.45,
+          "pe": 300.58,
+          "pb": 5.66,
+          "market_cap_yi": null
+        },
+        {
+          "code": "600487",
+          "name": "亨通光电",
+          "price": 109.04,
+          "pe": 60.83,
+          "pb": 8.47,
+          "market_cap_yi": null
+        },
+        {
+          "code": "600498",
+          "name": "烽火通信",
+          "price": 73.65,
+          "pe": 651.36,
+          "pb": 5.69,
+          "market_cap_yi": null
+        },
+        {
+          "code": "600775",
+          "name": "南京熊猫",
+          "price": 9.55,
+          "pe": -163.61,
+          "pb": 2.81,
+          "market_cap_yi": null
+        },
+        {
+          "code": "600776",
+          "name": "东方通信",
+          "price": 13.14,
+          "pe": 95.62,
+          "pb": 4.32,
+          "market_cap_yi": null
+        },
+        {
+          "code": "000063",
+          "name": "中兴通讯",
+          "price": 36.16,
+          "pe": 33.0,
+          "pb": 2.26,
+          "market_cap_yi": null
+        },
+        {
+          "code": "000070",
+          "name": "特发信息",
+          "price": 20.77,
+          "pe": -472.9,
+          "pb": 18.03,
+          "market_cap_yi": null
+        }
+      ],
+      "industry_avg": {
+        "pe": 216.07,
+        "pe_median": 155.04,
+        "pb": 9.64,
+        "pb_median": 5.69
+      },
+      "stock_position": "该股亏损中（PE=-472.9），无法与行业 PE 均值 216.07 对比，建议关注 PB（当前 18.03）",
+      "target_stock_code": "000070"
+    },
+    "lhb": [
+      {
+        "date": "2026-06-23",
+        "name": "特发信息",
+        "reason": "买一主买，成功率50.98%",
+        "net_amount_wan": 0,
+        "buy_amount_wan": 0,
+        "sell_amount_wan": 0,
+        "operator": ""
+      },
+      {
+        "date": "2026-06-23",
+        "name": "特发信息",
+        "reason": "1家机构买入，成功率51.09%",
+        "net_amount_wan": 0,
+        "buy_amount_wan": 0,
+        "sell_amount_wan": 0,
+        "operator": ""
+      },
+      {
+        "date": "2026-04-16",
+        "name": "特发信息",
+        "reason": "3家机构买入，成功率45.04%",
+        "net_amount_wan": 0,
+        "buy_amount_wan": 0,
+        "sell_amount_wan": 0,
+        "operator": ""
+      },
+      {
+        "date": "2026-04-13",
+        "name": "特发信息",
+        "reason": "4家机构买入，成功率38.17%",
+        "net_amount_wan": 0,
+        "buy_amount_wan": 0,
+        "sell_amount_wan": 0,
+        "operator": ""
+      },
+      {
+        "date": "2026-04-09",
+        "name": "特发信息",
+        "reason": "2家机构买入，成功率38.00%",
+        "net_amount_wan": 0,
+        "buy_amount_wan": 0,
+        "sell_amount_wan": 0,
+        "operator": ""
+      },
+      {
+        "date": "2026-04-02",
+        "name": "特发信息",
+        "reason": "4家机构买入，成功率31.28%",
+        "net_amount_wan": 0,
+        "buy_amount_wan": 0,
+        "sell_amount_wan": 0,
+        "operator": ""
+      },
+      {
+        "date": "2026-03-31",
+        "name": "特发信息",
+        "reason": "2家机构买入，成功率28.51%",
+        "net_amount_wan": 0,
+        "buy_amount_wan": 0,
+        "sell_amount_wan": 0,
+        "operator": ""
+      },
+      {
+        "date": "2026-02-13",
+        "name": "特发信息",
+        "reason": "1家机构卖出，成功率42.98%",
+        "net_amount_wan": 0,
+        "buy_amount_wan": 0,
+        "sell_amount_wan": 0,
+        "operator": ""
+      }
+    ],
+    "hk_short": {},
+    "macro": {
+      "标普500": {
+        "value": 7440.43,
+        "change_pct": 1.18
+      },
+      "VIX": {
+        "value": 17.65,
+        "change_pct": -4.13
+      },
+      "美债10Y": {
+        "value": 4.37,
+        "change_pct": -0.46
+      },
+      "USD/HKD": {
+        "value": 7.84,
+        "change_pct": 0.01
+      },
+      "纳斯达克": {
+        "value": 25820.14,
+        "change_pct": 2.07
+      },
+      "上证指数": {
+        "value": 4078.1,
+        "change_pct": 0.1
+      },
+      "USD/CNH": {
+        "value": 6.79,
+        "change_pct": 0.0
+      },
+      "恒生指数": {
+        "value": 22799.91,
+        "change_pct": -0.98
+      },
+      "沪深300": {
+        "value": 4960.29,
+        "change_pct": 1.89
+      }
+    },
+    "adr": {},
+    "data_freshness": {
+      "realtime_quote": {
+        "data_time": "2026-06-30",
+        "delay_note": "收盘数据"
+      },
+      "kline": {
+        "data_time": "2026-06-30",
+        "delay_note": "收盘后数据（含今日）"
+      },
+      "capital_flow": {
+        "data_time": "",
+        "delay_note": "T-1日数据（资金流向通常延迟1个交易日）"
+      },
+      "main_capital_flow": {
+        "data_time": "",
+        "delay_note": "T-1日数据（主力资金流向延迟1个交易日）"
+      },
+      "announcements": {
+        "data_time": "",
+        "delay_note": "实时公告（可能有数小时延迟）"
+      },
+      "news": {
+        "data_time": "",
+        "delay_note": "搜索时效约 1-3 天"
+      },
+      "analyst_reports": {
+        "data_time": "",
+        "delay_note": "研报发布日期见各条 date 字段，近180天"
+      },
+      "lhb": {
+        "data_time": "",
+        "delay_note": "T+1日盘后公布（龙虎榜次日才出）"
+      },
+      "hk_short": {
+        "data_time": "",
+        "delay_note": "T+1日数据（港交所次日公布卖空数据）"
+      },
+      "quarterly_financials": {
+        "data_time": "20260331",
+        "delay_note": "最新季度财报（季报有1-3个月披露延迟）"
+      },
+      "peer_comparison": {
+        "data_time": "2026-06-30",
+        "delay_note": "同业估值随实时行情更新"
+      },
+      "pe_band": {
+        "data_time": "2026-06-30",
+        "delay_note": "历史百分位基于近3年K线，当前PE假设EPS不变"
+      }
+    },
+    "cross_check": {
+      "sources": {
+        "eastmoney": {
+          "currentPrice": 20.77,
+          "marketCap": 18036521550.73,
+          "priceToBook": 18.03
+        },
+        "yfinance": {
+          "currentPrice": 20.71,
+          "marketCap": 17984417792.0,
+          "priceToBook": 17.97743
+        },
+        "tushare": {}
+      },
+      "discrepancies": []
+    }
+  },
+  "text_charts": {},
+  "export_options": {
+    "pdf_cmd": "python3 /Users/xqy/Workbuddy/2026-06-30-14-18-23/export_report.py {out}/report.md --format pdf",
+    "html_cmd": "python3 /Users/xqy/Workbuddy/2026-06-30-14-18-23/export_report.py {out}/report.md --format html",
+    "open_html": "open {out}/report.html"
+  }
+}
