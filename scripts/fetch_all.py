@@ -216,23 +216,43 @@ def _find_workspace():
         return wb_ws
 
     # 策略 2/3/4：向上找 .workbuddy/ 或 SOUL.md
+    _HOME_WB = os.path.abspath(os.path.join(os.path.expanduser("~"), ".workbuddy"))
+
+    def _is_valid_workspace(path):
+        """验证找到的目录是否是真正的 session workspace。
+        排除：用户 home 目录（~/.workbuddy/ 是 WorkBuddy 全局配置，不是 session workspace）。"""
+        wb_dir = os.path.join(path, ".workbuddy")
+        if not os.path.isdir(wb_dir):
+            return False
+        # 如果 .workbuddy 就是 WorkBuddy 全局配置目录本身 → 不是 workspace
+        if os.path.abspath(wb_dir) == _HOME_WB:
+            return False
+        # session workspace 的特征：.workbuddy 下有 memory/ 或 sessions/
+        if os.path.isdir(os.path.join(wb_dir, "memory")):
+            return True
+        if os.path.isdir(os.path.join(wb_dir, "sessions")):
+            return True
+        return False
+
     def _search_upward(start):
+        """从 start 开始向上搜索，找到第一个包含有效 .workbuddy/ 的目录"""
         current = os.path.abspath(start)
         while True:
             if os.path.isdir(os.path.join(current, ".workbuddy")):
-                return current
-            if os.path.isfile(os.path.join(current, "SOUL.md")):
-                return current
+                if _is_valid_workspace(current):
+                    return current
             parent = os.path.dirname(current)
             if parent == current:
                 return None
             current = parent
 
-    found = _search_upward(os.path.dirname(os.path.abspath(__file__)))
+    # 策略 2：优先从当前工作目录搜索（WorkBuddy 运行脚本时 cwd = workspace）
+    found = _search_upward(os.getcwd())
     if found:
         return found
 
-    found = _search_upward(os.getcwd())
+    # 策略 3：从脚本所在目录搜索（兼容 OpenClaw 环境）
+    found = _search_upward(os.path.dirname(os.path.abspath(__file__)))
     if found:
         return found
 

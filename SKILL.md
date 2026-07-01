@@ -47,9 +47,9 @@ stock_data_output/                # ← 输出目录（workspace 下，每次运
 │   ├── summary.json              # 数据摘要
 │   ├── kline_em.png              # 日K线图
 │   ├── kline_intraday.png        # 分时图
-│   ├── report.md                 # ⭐⭐ 模型写的精炼Markdown详细报告
-│   ├── report.html               # 🌐 md2html自动生成的网页
-│   └── report.pdf                # 📄 可选导出PDF
+│   ├── 腾讯控股 (0700.HK) 股票分析报告.md   # ⭐⭐ 模型写的精炼Markdown详细报告
+│   ├── 腾讯控股 (0700.HK) 股票分析报告.html # 🌐 md2html自动生成的网页
+│   └── 腾讯控股 (0700.HK) 股票分析报告.pdf  # 📄 自动导出的PDF
 └── 00981_20260331_2032/          # ← 另一次任务（完全独立文件夹）
 ```
 
@@ -77,12 +77,14 @@ stock_data_output/                # ← 输出目录（workspace 下，每次运
                                     ┌──────────────┼──────────────┐
                                     ↓              ↓              ↓
                              ════════════   ════════════   ════════════
-                             webchat回复     report.md     report.html
-                             (精炼总结)     (详细报告)     (md2html转换)
-                                             真实图片       专业CSS
-                                             详细分析        浏览器打开
-                                                                    ↓ 可选
-                                                              report.pdf
+                             webchat回复     股票名 (代码)    股票名 (代码)
+                             (精炼总结)     股票分析报告.md  股票分析报告.html
+                                            (详细报告)       (md2html转换)
+                                             真实图片         专业CSS
+                                             详细分析          浏览器打开
+                                                                      ↓
+                                                              股票名 (代码)
+                                                              股票分析报告.pdf
 ```
 
 **核心原则：**
@@ -257,19 +259,21 @@ web_search "{公司名} 业绩演示 投资者演示 PPT 2026"
 
 ---
 
-### Step 5：⭐⭐ 生成 report.md + 输出 webchat 精炼总结
+### Step 5：⭐⭐ 生成报告文件 + 输出 webchat 精炼总结
 
 这是最关键的一步，需要**同时输出两份内容**。
 
+**⚠️ 报告命名规则：** 使用 `{股票名} ({代码}) 股票分析报告.md` 作为主文件名，HTML 和 PDF 同名（仅后缀不同）。例如：`杭电股份 (603618.SH) 股票分析报告.md`。
+
 **⚠️ 执行顺序（严格遵守，不要跳步）：**
 
-1. 写 `report.md` 到任务文件夹
-2. 转 HTML（`md2html.py`）
-3. **自动导出 PDF**（`export_report.py`）
+1. 写报告 `.md` 文件到任务文件夹（文件名 = `{股票名} ({代码}) 股票分析报告.md`）
+2. 转 HTML（`md2html.py`，同名 `.html`）
+3. **自动导出 PDF**（`export_report.py`，同名 `.pdf`）
 4. 回复用户 webchat 精炼总结（附带 PDF 提示语）
-5. 打开浏览器（`open report.html`）— 可在回复之后异步执行
+5. 打开浏览器（`open {html文件}`）— 可在回复之后异步执行
 
-> 核心原则：**report.md、HTML、PDF 都必须在回复用户之前完成**，浏览器打开可以在回复后执行，但绝不能漏掉。
+> 核心原则：**报告文件、HTML、PDF 都必须在回复用户之前完成**，浏览器打开可以在回复后执行，但绝不能漏掉。
 
 #### 5a. webchat 精炼总结（最后回复用户）
 
@@ -333,7 +337,7 @@ web_search "{公司名} 业绩演示 投资者演示 PPT 2026"
 
 ═══ 第6部分：详细报告提示 ═══
 
-📄 详细报告 → report.html（浏览器已打开），需导出PDF随时说。
+📄 详细报告 → {股票名} ({代码}) 股票分析报告.html（浏览器已打开），同目录下 PDF 也已自动生成。
 ```
 
 **⚠️ webchat 回复的写作规则：**
@@ -345,7 +349,7 @@ web_search "{公司名} 业绩演示 投资者演示 PPT 2026"
 5. **总长度控制在聊天内一屏左右可读完** — 大约400-800字
 6. **不要假设用户会看HTML报告** — webchat回复本身就要是完整的
 
-#### 5b. ⭐ report.md（写入任务文件夹 — 必须在回复用户之前完成）
+#### 5b. ⭐ 报告文件（写入任务文件夹 — 必须在回复用户之前完成）
 
 **这是核心产物。** 详细、真实图片、推理过程完整。用户在浏览器/PDF中深度阅读用的。
 
@@ -353,12 +357,12 @@ web_search "{公司名} 业绩演示 投资者演示 PPT 2026"
 
 | 输出渠道        | 图片类型                                  | 原因                     |
 | --------------- | ----------------------------------------- | ------------------------ |
-| **report.md**   | ✅ **优先用真实图片** `![](kline_em.png)` | 浏览器可渲染，信息密度高 |
+| **报告文件**    | ✅ **优先用真实图片** `![](kline_em.png)` | 浏览器可渲染，信息密度高 |
 | **webchat回复** | ✅ **可用 sparkline**（20/60日微型走势）— 信息密度高 | 禁用 block chart（太占空间） |
 
-**简单说：report.md = 图文并茂的详细研报；webchat = 精炼文字速报 + sparkline 走势图。**
+**简单说：报告文件 = 图文并茂的详细研报；webchat = 精炼文字速报 + sparkline 走势图。**
 
-##### report.md 模板
+##### 报告文件模板
 
 **完整结构和写作规则见 `references/report_template.md`，写入前务必先读取。**
 
@@ -366,20 +370,20 @@ web_search "{公司名} 业绩演示 投资者演示 PPT 2026"
 
 **写入方式：**
 
-```bash
-write(content=报告markdown内容, path="{output_dir}/report.md")
+```
+write(content=报告markdown内容, path="{output_dir}/{股票名} ({代码}) 股票分析报告.md")
 ```
 
 ---
 
 ### Step 5.5：⭐⭐ 自我验证（必做，在 MD → HTML 之前）
 
-**写完 report.md 后，必须重读 summary.json 对照检查报告中的每个数字。**
+**写完报告文件后，必须重读 summary.json 对照检查报告中的每个数字。**
 
 这是防止"模型 confidently 写错数字"的最后一道防线。流程：
 
 1. 重新 `read("{output_dir}/summary.json")`
-2. 对照 report.md 里的关键数字逐项核对：
+2. 对照报告文件里的关键数字逐项核对：
    - 股价、涨跌幅、市值 → 与 `financials.currentPrice / changePercent / marketCap` 一致
    - PE / PB → 与 `financials.trailingPE / priceToBook` 一致；如报告说"亏损无 PE"但数据有 PE，必查
    - 技术指标 → 与 `technicals` 中的 MA5/20/60/120、RSI、MACD、KDJ、布林位置一致
@@ -387,7 +391,7 @@ write(content=报告markdown内容, path="{output_dir}/report.md")
    - 财务数据 → 与 `quarterly_financials_summary` 中的营收/净利/增速一致
    - 同业对比 → 与 `peer_comparison.industry_avg` 中的行业 PE/PB 一致
    - PE 历史百分位 → 与 `pe_band_stats.pe_percentile_3y` 一致
-3. **发现不一致立即修正 report.md**，不要在 webchat 回复里写"已修正"——直接改 md
+3. **发现不一致立即修正报告文件**，不要在 webchat 回复里写"已修正"——直接改 md
 4. 特别检查：
    - 报告里的"今日"是否对应 `price_as_of`（周末/假日不能写"今日"）
    - 货币单位是否标注（HKD/CNY/USD）
@@ -400,11 +404,11 @@ write(content=报告markdown内容, path="{output_dir}/report.md")
 ### Step 6：⭐⭐ MD → HTML + 自动 PDF 导出（必做，在回复用户之前）
 
 ```bash
-# Step 6a: 转 HTML
-{SKILL_DIR}/scripts/venv/bin/python {SKILL_DIR}/scripts/md2html.py {output_dir}/report.html -i {output_dir}/report.md
+# Step 6a: 转 HTML（输出文件名 = 输入文件名换 .html 后缀）
+{SKILL_DIR}/scripts/venv/bin/python {SKILL_DIR}/scripts/md2html.py "{output_dir}/{股票名} ({代码}) 股票分析报告.html" -i "{output_dir}/{股票名} ({代码}) 股票分析报告.md"
 
 # Step 6b: 自动导出 PDF（不再等待用户要求）
-{SKILL_DIR}/scripts/venv/bin/python {SKILL_DIR}/scripts/export_report.py {output_dir}/report.md --format pdf --output {output_dir}/report.pdf
+{SKILL_DIR}/scripts/venv/bin/python {SKILL_DIR}/scripts/export_report.py "{output_dir}/{股票名} ({代码}) 股票分析报告.md" --format pdf --output "{output_dir}/{股票名} ({代码}) 股票分析报告.pdf"
 ```
 
 **md2html.py 会自动：**
@@ -428,12 +432,18 @@ write(content=报告markdown内容, path="{output_dir}/report.md")
 每次分析完成后（Step 6 之后、回复用户之前），把产物拷贝到 workspace 根目录：
 
 ```bash
-cp -R {output_dir} {workspace}/stock-output/
+cp -R "{output_dir}/"* "{workspace}/stock-output/{子文件夹}/"
 ```
 
-然后在 `present_files` 中使用 workspace 路径下的文件：
+然后在 `present_files` 中列出所有产物：
 ```
-present_files(["stock-output/report.html", "stock-output/report.md", ...])
+present_files([
+  "stock-output/{子文件夹}/{股票名} ({代码}) 股票分析报告.html",
+  "stock-output/{子文件夹}/{股票名} ({代码}) 股票分析报告.md",
+  "stock-output/{子文件夹}/{股票名} ({代码}) 股票分析报告.pdf",
+  "stock-output/{子文件夹}/kline_em.png",
+  ...
+])
 ```
 
 ---
@@ -441,12 +451,12 @@ present_files(["stock-output/report.html", "stock-output/report.md", ...])
 ### Step 7：📄 打开浏览器 + PDF 提示（每次必带）
 
 ```bash
-open {output_dir}/report.html
+open "{output_dir}/{股票名} ({代码}) 股票分析报告.html"
 ```
 
 **每次分析结束后，必须在 webchat 回复末尾加上这句提示：**
 
-> 📄 详细报告已在浏览器中打开，同时 📥 PDF 报告也已自动生成在同目录下（report.pdf），随时可下载或分享。
+> 📄 详细报告已在浏览器中打开，同时 📥 PDF 报告也已自动生成在同目录下，随时可下载或分享。
 
 > **提示话术（如用户提到导出/保存/打印等）：** "PDF 已经自动生成好了，可以直接打开查看或分享。"
 
@@ -509,5 +519,5 @@ open {output_dir}/report.html
 10. **语种跟随用户** — 术语保留英文
 11. **敏感标的合规** — 见 `references/sensitive_companies.md`
 12. **HTML 由 md2html 生成** — 不要手写 HTML（会被安全策略拦截长命令）
-13. **report.md 是核心产物** — HTML 和 PDF 都从它派生
-14. **执行顺序：report.md → HTML → 回复用户 → 打开浏览器** — report.md 和 HTML 先完成，浏览器打开不能漏
+13. **报告文件是核心产物** — HTML 和 PDF 都从它派生，使用 `{股票名} ({代码}) 股票分析报告.md` 命名
+14. **执行顺序：报告文件 → HTML → 回复用户 → 打开浏览器** — 报告文件和 HTML 先完成，浏览器打开不能漏
